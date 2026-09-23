@@ -10,6 +10,12 @@ def move_circle():
     print("CIRCLE")
     clear_canvas()
     character.draw(400, 300)
+
+    theta = math.radians(0)
+    x = 400 + 200 * math.cos(theta)
+    y = 300 + 200 * math.sin(theta)
+
+
     update_canvas()
     pass
 
