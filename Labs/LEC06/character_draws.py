@@ -62,12 +62,16 @@ def move_rectangle():
 
 def move_leftdown():
     print('LEFTDOWN')
-    for x, y in zip(range(400, 50, -5), range(300, 50, -5)):
+    for i in range(0, 70):
+        x = 400 - 350 * i / 70
+        y = 300 - 250 * i / 70
         draw_character(x, y)
     pass
 
 def move_tri_right():
     print('TRI_RIGHT')
+    for x in range(50, 750, 5):
+        draw_character(x, 50)
     pass
 
 def move_leftup():
