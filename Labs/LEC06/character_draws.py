@@ -28,25 +28,21 @@ def move_circle():
     pass
 
 def move_top():
-    print('TOP')
     for x in range(50, 750, 10):
         draw_character(x, 550)
     pass
 
 def move_right():
-    print('RIGHT')
     for y in range(550, 50, -10):
         draw_character(750, y)
     pass
 
 def move_bottom():
-    print('BOTTOM')
     for x in range(750, 50, -10):
         draw_character(x, 50)
     pass
 
 def move_left():
-    print('LEFT')
     for y in range(50, 550, 10):
         draw_character(50, y)
     pass
@@ -61,7 +57,6 @@ def move_rectangle():
     pass
 
 def move_leftdown():
-    print('LEFTDOWN')
     for i in range(0, 70):
         x = 400 - 350 * i / 70
         y = 300 - 250 * i / 70
@@ -69,13 +64,11 @@ def move_leftdown():
     pass
 
 def move_tri_right():
-    print('TRI_RIGHT')
     for x in range(50, 750, 10):
         draw_character(x, 50)
     pass
 
 def move_leftup():
-    print('LEFTUP')
     for i in range(0, 70):
         x = 750 - 350 * i / 70
         y = 50 + 250 * i / 70
