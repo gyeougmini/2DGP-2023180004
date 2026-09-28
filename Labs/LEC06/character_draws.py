@@ -17,7 +17,7 @@ def draw_character(x, y):
 def move_circle():
 
     character.draw(400, 300)
-    for degree in range(0, 360, 5):
+    for degree in range(0, 360, 3):
         theta = math.radians(degree)
         x = 400 + 200 * math.cos(theta)
         y = 300 + 200 * math.sin(theta)
@@ -26,19 +26,19 @@ def move_circle():
     update_canvas()
 
 def move_top():
-    for x in range(50, 750, 10):
+    for x in range(50, 750, 5):
         draw_character(x, 550)
 
 def move_right():
-    for y in range(550, 50, -10):
+    for y in range(550, 50, -5):
         draw_character(750, y)
 
 def move_bottom():
-    for x in range(750, 50, -10):
+    for x in range(750, 50, -5):
         draw_character(x, 50)
 
 def move_left():
-    for y in range(50, 550, 10):
+    for y in range(50, 550, 5):
         draw_character(50, y)
 
 
@@ -55,7 +55,7 @@ def move_leftdown():
         draw_character(x, y)
 
 def move_tri_right():
-    for x in range(50, 750, 10):
+    for x in range(50, 750, 5):
         draw_character(x, 50)
 
 def move_leftup():
