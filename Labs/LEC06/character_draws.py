@@ -60,8 +60,24 @@ def move_rectangle():
     move_left()
     pass
 
+def move_leftdown():
+    print('LEFTDOWN')
+    pass
+
+def move_tri_right():
+    print('TRI_RIGHT')
+    pass
+
+def move_leftup():
+    print('LEFTUP')
+    pass
+
+
 def move_triangle():
     print("TRIANGLE")
+    move_leftdown()
+    move_tri_right()
+    move_leftup()
     pass
 
 
