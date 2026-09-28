@@ -76,6 +76,10 @@ def move_tri_right():
 
 def move_leftup():
     print('LEFTUP')
+    for i in range(0, 70):
+        x = 750 - 350 * i / 70
+        y = 50 + 250 * i / 70
+        draw_character(x, y)
     pass
 
 
