@@ -25,27 +25,22 @@ def move_circle():
         draw_character(x, y)
 
     update_canvas()
-    pass
 
 def move_top():
     for x in range(50, 750, 10):
         draw_character(x, 550)
-    pass
 
 def move_right():
     for y in range(550, 50, -10):
         draw_character(750, y)
-    pass
 
 def move_bottom():
     for x in range(750, 50, -10):
         draw_character(x, 50)
-    pass
 
 def move_left():
     for y in range(50, 550, 10):
         draw_character(50, y)
-    pass
 
 
 def move_rectangle():
@@ -54,26 +49,22 @@ def move_rectangle():
     move_right()
     move_bottom()
     move_left()
-    pass
 
 def move_leftdown():
     for i in range(0, 70):
         x = 400 - 350 * i / 70
         y = 300 - 250 * i / 70
         draw_character(x, y)
-    pass
 
 def move_tri_right():
     for x in range(50, 750, 10):
         draw_character(x, 50)
-    pass
 
 def move_leftup():
     for i in range(0, 70):
         x = 750 - 350 * i / 70
         y = 50 + 250 * i / 70
         draw_character(x, y)
-    pass
 
 
 def move_triangle():
@@ -81,7 +72,6 @@ def move_triangle():
     move_leftdown()
     move_tri_right()
     move_leftup()
-    pass
 
 
 
@@ -89,7 +79,6 @@ while True:
     move_circle()
     move_rectangle()
     move_triangle()
-    pass
 
 
 close_canvas()
