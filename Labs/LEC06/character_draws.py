@@ -1,4 +1,5 @@
 # 실습 과제 진행
+import math
 from pico2d import *
 
 open_canvas(800, 600)
@@ -10,7 +11,7 @@ def move_circle():
     print("CIRCLE")
 
     character.draw(400, 300)
-    for degree in range(360):
+    for degree in range(0, 360, 5):
         theta = math.radians(degree)
         x = 400 + 200 * math.cos(theta)
         y = 300 + 200 * math.sin(theta)
@@ -18,7 +19,7 @@ def move_circle():
 
         character.draw(x, y)
         update_canvas()
-        delay(0.01)
+        delay(0.05)
 
 
     update_canvas()
