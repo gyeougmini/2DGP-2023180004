@@ -62,6 +62,8 @@ def move_rectangle():
 
 def move_leftdown():
     print('LEFTDOWN')
+    for x, y in zip(range(400, 50, -5), range(300, 50, -5)):
+        draw_character(x, y)
     pass
 
 def move_tri_right():
