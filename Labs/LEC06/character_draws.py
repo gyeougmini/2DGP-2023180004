@@ -15,7 +15,6 @@ def draw_character(x, y):
 
 
 def move_circle():
-    print("CIRCLE")
 
     character.draw(400, 300)
     for degree in range(0, 360, 5):
@@ -44,7 +43,6 @@ def move_left():
 
 
 def move_rectangle():
-    print("RECTANGLE")
     move_top()
     move_right()
     move_bottom()
@@ -68,7 +66,6 @@ def move_leftup():
 
 
 def move_triangle():
-    print("TRIANGLE")
     move_leftdown()
     move_tri_right()
     move_leftup()
