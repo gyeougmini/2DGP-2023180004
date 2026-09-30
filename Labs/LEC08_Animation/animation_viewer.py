@@ -104,5 +104,35 @@ for x in range(100, 700, 5):
 
 
 
+sonic_jump_frames = [
+    (1, 24), (31, 29), (65, 20), (90, 25), (119, 25), (149, 20)
+]
+
+frame = 0
+
+for i in range(0, 61):
+    clear_canvas()
+    grass.draw(400, 30)
+
+
+    t = i / 60
+    jump = 300 * 4 * t * (1 - t)
+
+    left, width = sonic_jump_frames[frame]
+    sonic.clip_draw(
+        left, 155,
+        width, 44,
+        400, 61 + 44 + jump,
+        width * 2, 44 * 2
+    )
+
+    update_canvas()
+
+    frame = (frame + 1) % 6
+
+    delay(0.05)
+
+
+
 close_canvas()
 
