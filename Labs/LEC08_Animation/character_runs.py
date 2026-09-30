@@ -19,13 +19,33 @@ for x in range(0, 800, 5):
         x, 90,
         200, 200
     )
+
     update_canvas()
 
     
     frame = (frame + 1) % 8
 
+
     delay(0.05)
 
+for x in range(800, 0, -5):
+    clear_canvas()
+    grass.draw(400, 30)
+
+    
+    character.clip_composite_draw(
+        frame * 100, 0, 
+        100, 100,
+        0, 'h',
+        x, 90,
+        200, 200
+    )
+    
+    update_canvas()
+
+    
+    frame = (frame + 1) % 8
+    delay(0.05)
 
 close_canvas()
 
