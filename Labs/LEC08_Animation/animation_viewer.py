@@ -110,27 +110,28 @@ sonic_jump_frames = [
 
 frame = 0
 
-for i in range(0, 61):
-    clear_canvas()
-    grass.draw(400, 30)
+for count in range(3):
+    for i in range(0, 61):
+        clear_canvas()
+        grass.draw(400, 30)
 
 
-    t = i / 60
-    jump = 300 * 4 * t * (1 - t)
+        t = i / 60
+        jump = 300 * 4 * t * (1 - t)
 
-    left, width = sonic_jump_frames[frame]
-    sonic.clip_draw(
-        left, 155,
-        width, 44,
-        400, 61 + 44 + jump,
-        width * 2, 44 * 2
-    )
+        left, width = sonic_jump_frames[frame]
+        sonic.clip_draw(
+            left, 155,
+            width, 44,
+            400, 61 + 44 + jump,
+            width * 2, 44 * 2
+        )
 
-    update_canvas()
+        update_canvas()
 
-    frame = (frame + 1) % 6
+        frame = (frame + 1) % 6
 
-    delay(0.05)
+        delay(0.05)
 
 
 
