@@ -7,6 +7,7 @@ background = load_image('TUK_GROUND.png')
 grass = load_image('grass.png')
 character = load_image('run_animation.png')
 samurai = load_image('SamuraiSheet.png')
+sonic = load_image('sonic-sprite.png')
 
 # fill here
 frame = 0
@@ -70,6 +71,34 @@ for x in range(300, 700, 5):
     frame = (frame + 1) % 6
 
     delay(0.05)
+
+
+sonic_frames = [
+    (1, 29), (35, 29), (67, 30), (98, 31), (131, 29),
+    (162, 29), (193, 30), (230, 31), (268, 30)
+]
+
+frame = 0
+
+for x in range(100, 700, 5):
+    clear_canvas()
+    grass.draw(400, 30)
+
+    left, width = sonic_frames[frame]
+    sonic.clip_draw(
+        left, 325,
+        width, 33,
+        x, 111,
+        width * 3, 33 * 3
+    )
+
+    update_canvas()
+
+    frame = (frame + 1) % 9
+
+    delay(0.05)
+
+
 
 close_canvas()
 
