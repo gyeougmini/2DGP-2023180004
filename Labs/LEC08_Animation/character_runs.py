@@ -2,6 +2,7 @@ from pico2d import *
 
 open_canvas()
 
+background = load_image('TUK_GROUND.png')
 grass = load_image('grass.png')
 character = load_image('run_animation.png')
 
@@ -10,14 +11,13 @@ frame = 0
 
 for x in range(0, 800, 5):
     clear_canvas()
-    grass.draw(400, 30)
+    background.draw(400, 300, 800, 600)
 
     
     character.clip_draw(
         frame * 100, 0, 
         100, 100,
-        x, 90,
-        200, 200
+        x, 90
     )
 
     update_canvas()
@@ -30,7 +30,7 @@ for x in range(0, 800, 5):
 
 for x in range(800, 0, -5):
     clear_canvas()
-    grass.draw(400, 30)
+    background.draw(400, 300, 800, 600)
 
     
     character.clip_composite_draw(
@@ -38,7 +38,7 @@ for x in range(800, 0, -5):
         100, 100,
         0, 'h',
         x, 90,
-        200, 200
+        100, 100
     )
     
     update_canvas()
