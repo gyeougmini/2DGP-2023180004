@@ -84,12 +84,15 @@ for x in range(100, 700, 5):
     clear_canvas()
     grass.draw(400, 30)
 
+    # 화면 가운데(x=400)에서 가장 크고(5배), 양 끝(x=100, 700)에서 가장 작게(1배)
+    scale = 1 + 4 * (1 - abs(x - 400) / 300)
+
     left, width = sonic_frames[frame]
     sonic.clip_draw(
         left, 325,
         width, 33,
-        x, 111,
-        width * 3, 33 * 3
+        x, 61 + 33 * scale / 2,
+        width * scale, 33 * scale
     )
 
     update_canvas()
