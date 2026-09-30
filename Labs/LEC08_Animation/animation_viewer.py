@@ -61,21 +61,44 @@ delay(1)
 
 frame = 0
 
-for x in range(300, 700, 5):
-    clear_canvas()
-    grass.draw(400, 30)
+# 오른쪽 → 왼쪽을 3번 반복하면 방향 전환이 총 5번
+for count in range(3):
+    for x in range(300, 700, 5):
+        clear_canvas()
+        grass.draw(400, 30)
 
-    samurai.clip_draw(
-        frame * 128, 1280 - 128 * 5,
-        128, 128,
-        x, 125
-    )
+        samurai.clip_draw(
+            frame * 128, 1280 - 128 * 5,
+            128, 128,
+            x, 125
+        )
 
-    update_canvas()
+        update_canvas()
 
-    frame = (frame + 1) % 6
+        frame = (frame + 1) % 6
 
-    delay(0.05)
+        delay(0.05)
+
+    for x in range(700, 300, -5):
+        clear_canvas()
+        grass.draw(400, 30)
+
+        samurai.clip_composite_draw(
+            frame * 128, 1280 - 128 * 5,
+            128, 128,
+            0, 'h',
+            x, 125,
+            128, 128
+        )
+
+        update_canvas()
+
+        frame = (frame + 1) % 6
+
+        delay(0.05)
+
+# 마지막 화면을 그대로 둔 채 1초 정지한 뒤 sonic으로 전환
+delay(1)
 
 
 sonic_frames = [
