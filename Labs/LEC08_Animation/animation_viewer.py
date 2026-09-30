@@ -20,7 +20,8 @@ for x in range(0, 800, 5):
     character.clip_draw(
         frame * 100, 0, 
         100, 100,
-        x, 90
+        x, 90,
+        200, 200
     )
 
     ball.draw(x + 40, 60)
@@ -43,7 +44,7 @@ for x in range(800, 0, -5):
         100, 100,
         0, 'h',
         x, 90,
-        100, 100
+        200, 200
     )
     
     ball.draw(x - 40, 60)
