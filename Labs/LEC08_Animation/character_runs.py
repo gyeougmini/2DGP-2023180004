@@ -2,6 +2,7 @@ from pico2d import *
 
 open_canvas()
 
+ball = load_image('ball21x21.png')
 background = load_image('TUK_GROUND.png')
 grass = load_image('grass.png')
 character = load_image('run_animation.png')
@@ -19,6 +20,8 @@ for x in range(0, 800, 5):
         100, 100,
         x, 90
     )
+
+    ball.draw(x + 40, 60)
 
     update_canvas()
 
@@ -40,6 +43,8 @@ for x in range(800, 0, -5):
         x, 90,
         100, 100
     )
+    
+    ball.draw(x - 40, 60)
     
     update_canvas()
 
