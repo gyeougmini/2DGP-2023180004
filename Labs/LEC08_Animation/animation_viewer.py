@@ -9,7 +9,6 @@ character = load_image('run_animation.png')
 samurai = load_image('SamuraiSheet.png')
 sonic = load_image('sonic-sprite.png')
 
-# fill here
 # 전체 애니메이션 무한 반복 (종료: 터미널에서 Ctrl+C)
 while True:
     frame = 0
@@ -189,7 +188,4 @@ while True:
 
     # 마지막 화면을 그대로 둔 채 1초 정지한 뒤 처음(캐릭터)으로 돌아감
     delay(1)
-
-
-close_canvas()
 
