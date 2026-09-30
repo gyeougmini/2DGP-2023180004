@@ -12,48 +12,52 @@ sonic = load_image('sonic-sprite.png')
 # fill here
 frame = 0
 
-for x in range(0, 800, 10):
-    clear_canvas()
-    background.draw(400, 300, 800, 600)
-
-    
-    character.clip_draw(
-        frame * 100, 0, 
-        100, 100,
-        x, 90,
-        200, 200
-    )
-
-    ball.draw(x + 40, 60)
-
-    update_canvas()
-
-    
-    frame = (frame + 1) % 8
+for count in range(5):
+    for x in range(0, 800, 20):
+        clear_canvas()
+        background.draw(400, 300, 800, 600)
 
 
-    delay(0.05)
+        character.clip_draw(
+            frame * 100, 0,
+            100, 100,
+            x, 90,
+            200, 200
+        )
 
-for x in range(800, 0, -10):
-    clear_canvas()
-    background.draw(400, 300, 800, 600)
+        ball.draw(x + 40, 60)
 
-    
-    character.clip_composite_draw(
-        frame * 100, 0, 
-        100, 100,
-        0, 'h',
-        x, 90,
-        200, 200
-    )
-    
-    ball.draw(x - 40, 60)
-    
-    update_canvas()
+        update_canvas()
 
-    
-    frame = (frame + 1) % 8
-    delay(0.05)
+
+        frame = (frame + 1) % 8
+
+
+        delay(0.05)
+
+    for x in range(800, 0, -20):
+        clear_canvas()
+        background.draw(400, 300, 800, 600)
+
+
+        character.clip_composite_draw(
+            frame * 100, 0,
+            100, 100,
+            0, 'h',
+            x, 90,
+            200, 200
+        )
+
+        ball.draw(x - 40, 60)
+
+        update_canvas()
+
+
+        frame = (frame + 1) % 8
+        delay(0.05)
+
+# 마지막 화면을 그대로 둔 채 1초 정지한 뒤 samurai로 전환
+delay(1)
 
 frame = 0
 
