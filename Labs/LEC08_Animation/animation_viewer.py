@@ -162,7 +162,7 @@ sonic_jump_frames = [
 
 frame = 0
 
-for count in range(3):
+for count in range(5):
     for i in range(0, 61):
         clear_canvas()
         grass.draw(400, 30)
