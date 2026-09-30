@@ -185,7 +185,8 @@ for count in range(5):
 
         delay(0.05)
 
-
+# 마지막 화면을 그대로 둔 채 1초 정지한 뒤 종료
+delay(1)
 
 close_canvas()
 
