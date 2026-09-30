@@ -6,6 +6,7 @@ ball = load_image('ball21x21.png')
 background = load_image('TUK_GROUND.png')
 grass = load_image('grass.png')
 character = load_image('run_animation.png')
+samurai = load_image('SamuraiSheet.png')
 
 # fill here
 frame = 0
@@ -50,6 +51,24 @@ for x in range(800, 0, -5):
 
     
     frame = (frame + 1) % 8
+    delay(0.05)
+
+frame = 0
+
+for x in range(300, 700, 5):
+    clear_canvas()
+    grass.draw(400, 30)
+
+    samurai.clip_draw(
+        frame * 128, 1280 - 128 * 5,
+        128, 128,
+        x, 125
+    )
+
+    update_canvas()
+
+    frame = (frame + 1) % 6
+
     delay(0.05)
 
 close_canvas()
