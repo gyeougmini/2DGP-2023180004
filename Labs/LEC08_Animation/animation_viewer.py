@@ -12,7 +12,7 @@ sonic = load_image('sonic-sprite.png')
 # fill here
 frame = 0
 
-for x in range(0, 800, 5):
+for x in range(0, 800, 10):
     clear_canvas()
     background.draw(400, 300, 800, 600)
 
@@ -34,7 +34,7 @@ for x in range(0, 800, 5):
 
     delay(0.05)
 
-for x in range(800, 0, -5):
+for x in range(800, 0, -10):
     clear_canvas()
     background.draw(400, 300, 800, 600)
 
