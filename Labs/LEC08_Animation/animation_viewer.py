@@ -108,27 +108,52 @@ sonic_frames = [
 
 frame = 0
 
-for x in range(100, 700, 5):
-    clear_canvas()
-    grass.draw(400, 30)
+# 오른쪽 → 왼쪽을 3번 반복하면 방향 전환이 총 5번
+for count in range(3):
+    for x in range(100, 700, 15):
+        clear_canvas()
+        grass.draw(400, 30)
 
-    # 화면 가운데(x=400)에서 가장 크고(5배), 양 끝(x=100, 700)에서 가장 작게(1배)
-    scale = 1 + 4 * (1 - abs(x - 400) / 300)
+        # 화면 가운데(x=400)에서 가장 크고(5배), 양 끝(x=100, 700)에서 가장 작게(1배)
+        scale = 1 + 4 * (1 - abs(x - 400) / 300)
 
-    left, width = sonic_frames[frame]
-    sonic.clip_draw(
-        left, 325,
-        width, 33,
-        x, 61 + 33 * scale / 2,
-        width * scale, 33 * scale
-    )
+        left, width = sonic_frames[frame]
+        sonic.clip_draw(
+            left, 325,
+            width, 33,
+            x, 61 + 33 * scale / 2,
+            width * scale, 33 * scale
+        )
 
-    update_canvas()
+        update_canvas()
 
-    frame = (frame + 1) % 9
+        frame = (frame + 1) % 9
 
-    delay(0.05)
+        delay(0.05)
 
+    for x in range(700, 100, -15):
+        clear_canvas()
+        grass.draw(400, 30)
+
+        scale = 1 + 4 * (1 - abs(x - 400) / 300)
+
+        left, width = sonic_frames[frame]
+        sonic.clip_composite_draw(
+            left, 325,
+            width, 33,
+            0, 'h',
+            x, 61 + 33 * scale / 2,
+            width * scale, 33 * scale
+        )
+
+        update_canvas()
+
+        frame = (frame + 1) % 9
+
+        delay(0.05)
+
+# 마지막 화면을 그대로 둔 채 1초 정지한 뒤 점프하는 sonic으로 전환
+delay(1)
 
 
 sonic_jump_frames = [
