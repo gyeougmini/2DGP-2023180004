@@ -63,7 +63,7 @@ frame = 0
 
 # 오른쪽 → 왼쪽을 3번 반복하면 방향 전환이 총 5번
 for count in range(3):
-    for x in range(300, 700, 5):
+    for x in range(300, 700, 10):
         clear_canvas()
         grass.draw(400, 30)
 
@@ -79,7 +79,7 @@ for count in range(3):
 
         delay(0.05)
 
-    for x in range(700, 300, -5):
+    for x in range(700, 300, -10):
         clear_canvas()
         grass.draw(400, 30)
 
