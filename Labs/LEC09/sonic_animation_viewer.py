@@ -27,7 +27,8 @@ running = True
 while running:
     handle_events()
     clear_white()
-    sheet.draw(WIDTH // 2, HEIGHT // 2)
+    # 대기 동작 첫 프레임: x=1, w=29, pico_y=447, h=39
+    sheet.clip_draw_to_origin(1, 447, 29, 39, WIDTH // 2, HEIGHT // 2)
     update_canvas()
     delay(0.1)
 
