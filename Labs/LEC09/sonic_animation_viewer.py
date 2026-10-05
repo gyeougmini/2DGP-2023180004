@@ -21,6 +21,8 @@ SPIN = (325, 33, [(1, 29), (35, 29), (67, 30), (98, 31), (131, 29), (162, 29),
                   (193, 30), (230, 31), (268, 30)])
 # 5 구르기
 BALL = (292, 27, [(1, 30), (36, 29), (70, 29), (105, 29), (139, 29), (174, 29)])
+# 6 고속 달리기
+SUPER_RUN = (251, 36, [(1, 29), (36, 30), (74, 31), (111, 31), (149, 30), (186, 31)])
 
 
 def clear_white():
@@ -49,7 +51,7 @@ def handle_events():
 open_canvas(WIDTH, HEIGHT)
 sheet = load_image('sonic-sprite.png')
 
-current = BALL
+current = SUPER_RUN
 frame = 0
 
 running = True
