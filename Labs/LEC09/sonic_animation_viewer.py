@@ -19,6 +19,8 @@ DASH = (361, 43, [(1, 33), (39, 35), (89, 35), (130, 34), (181, 34), (228, 33)])
 # 4 스핀
 SPIN = (325, 33, [(1, 29), (35, 29), (67, 30), (98, 31), (131, 29), (162, 29),
                   (193, 30), (230, 31), (268, 30)])
+# 5 구르기
+BALL = (292, 27, [(1, 30), (36, 29), (70, 29), (105, 29), (139, 29), (174, 29)])
 
 
 def clear_white():
@@ -47,7 +49,7 @@ def handle_events():
 open_canvas(WIDTH, HEIGHT)
 sheet = load_image('sonic-sprite.png')
 
-current = SPIN
+current = BALL
 frame = 0
 
 running = True
