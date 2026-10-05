@@ -8,8 +8,12 @@ GROUND_Y = 300
 FRAME_TIME = 0.1
 
 # 동작 하나 = (pico_y, h, [(x, w), ...])
+# 1 대기
 IDLE = (447, 39, [(1, 29), (31, 26), (58, 28), (86, 30), (118, 30), (150, 30),
                   (182, 29), (211, 29), (240, 29), (270, 24), (302, 29)])
+# 2 달리기
+RUN = (407, 39, [(8, 26), (37, 27), (65, 31), (97, 37), (135, 32), (170, 32), (206, 26),
+                 (238, 24), (263, 30), (295, 36), (334, 32), (370, 29)])
 
 
 def clear_white():
@@ -38,7 +42,7 @@ def handle_events():
 open_canvas(WIDTH, HEIGHT)
 sheet = load_image('sonic-sprite.png')
 
-current = IDLE
+current = RUN
 frame = 0
 
 running = True
