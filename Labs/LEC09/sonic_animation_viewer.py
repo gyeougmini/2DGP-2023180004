@@ -65,9 +65,14 @@ def draw():
 
 
 def update():
-    global frame, repeat
+    global anim_index, frame, repeat
     if repeat == REPEAT_COUNT:
-        return  # 5회 재생을 마치면 마지막 프레임에서 멈춘다
+        # 5회 재생을 마치면 다음 동작으로 넘어간다 (마지막 동작이면 그대로 멈춘다)
+        if anim_index < len(ANIMATIONS) - 1:
+            anim_index += 1
+            frame = 0
+            repeat = 0
+        return
     frame += 1
     if frame == len(ANIMATIONS[anim_index]['frames']):
         repeat += 1
