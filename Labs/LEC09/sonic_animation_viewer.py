@@ -1,6 +1,13 @@
 from pico2d import *
+import pico2d.pico2d as p2d
 
 WIDTH, HEIGHT = 1200, 800
+
+
+def clear_white():
+    # pico2d 의 clear_canvas() 는 회색으로 지우므로 흰색으로 직접 지운다
+    SDL_SetRenderDrawColor(p2d.renderer, 255, 255, 255, 255)
+    SDL_RenderClear(p2d.renderer)
 
 
 def handle_events():
@@ -14,11 +21,13 @@ def handle_events():
 
 
 open_canvas(WIDTH, HEIGHT)
+sheet = load_image('sonic-sprite.png')
 
 running = True
 while running:
     handle_events()
-    clear_canvas()
+    clear_white()
+    sheet.draw(WIDTH // 2, HEIGHT // 2)
     update_canvas()
     delay(0.1)
 
