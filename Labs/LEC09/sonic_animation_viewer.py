@@ -53,17 +53,17 @@ def clear_white():
     SDL_RenderClear(p2d.renderer)
 
 
-def draw_frame(x, y, w, h):
-    # 바닥선 GROUND_Y 에 발을 맞추고, 가로는 화면 가운데에 맞춰 SCALE 배로 그린다
+def draw_frame(x, y, w, h, cx):
+    # 바닥선 GROUND_Y 에 발을 맞추고, 프레임 가운데를 cx 에 맞춰 SCALE 배로 그린다
     sheet.clip_draw_to_origin(x, y, w, h,
-                              CENTER_X - w * SCALE // 2, GROUND_Y,
+                              cx - w * SCALE // 2, GROUND_Y,
                               w * SCALE, h * SCALE)
 
 
 def draw():
     anim = ANIMATIONS[anim_index]
     x, w = anim['frames'][frame]
-    draw_frame(x, anim['y'], w, anim['h'])
+    draw_frame(x, anim['y'], w, anim['h'], CENTER_X)
 
 
 def update():
