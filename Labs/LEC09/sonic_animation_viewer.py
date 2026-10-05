@@ -28,6 +28,9 @@ PEEL_OUT = (207, 35, [(1, 29), (36, 30), (72, 39), (123, 39), (172, 39), (218, 3
 # 8 여러 자세
 MISC = (154, 45, [(1, 24), (31, 29), (65, 20), (90, 25), (119, 25), (149, 20),
                   (184, 40), (232, 39)])
+# 9 밀기
+PUSH = (108, 40, [(1, 27), (31, 31), (64, 31), (99, 33), (136, 32), (176, 33),
+                  (217, 33), (254, 33)])
 
 
 def clear_white():
@@ -56,7 +59,7 @@ def handle_events():
 open_canvas(WIDTH, HEIGHT)
 sheet = load_image('sonic-sprite.png')
 
-current = MISC
+current = PUSH
 frame = 0
 
 running = True
