@@ -7,6 +7,7 @@ CENTER_X = 600
 GROUND_Y = 300
 FRAME_TIME = 0.1
 REPEAT_COUNT = 5
+PAUSE_TIME = 1.0
 
 # 동작 목록: y, h 는 그 줄 전체가 같고(pico2d 좌표), 프레임마다 (x, w) 만 다르다
 ANIMATIONS = [
@@ -65,19 +66,22 @@ def draw():
 
 
 def update():
-    global anim_index, frame, repeat
-    if repeat == REPEAT_COUNT:
-        # 5회 재생을 마치면 다음 동작으로 넘어간다 (마지막 동작이면 그대로 멈춘다)
-        if anim_index < len(ANIMATIONS) - 1:
+    global anim_index, frame, repeat, paused, pause_start
+    if paused:
+        # 1초가 지나면 다음 동작으로 넘어간다 (마지막 동작이면 그대로 멈춘다)
+        if get_time() - pause_start >= PAUSE_TIME and anim_index < len(ANIMATIONS) - 1:
             anim_index += 1
             frame = 0
             repeat = 0
+            paused = False
         return
     frame += 1
     if frame == len(ANIMATIONS[anim_index]['frames']):
         repeat += 1
         if repeat == REPEAT_COUNT:
-            frame -= 1  # 마지막 프레임 유지
+            frame -= 1  # 정지하는 동안 마지막 프레임 유지
+            paused = True
+            pause_start = get_time()
         else:
             frame = 0
 
@@ -98,6 +102,8 @@ sheet = load_image('sonic-sprite.png')
 anim_index = 0
 frame = 0
 repeat = 0
+paused = False
+pause_start = 0.0
 
 running = True
 while running:
