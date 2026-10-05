@@ -68,9 +68,9 @@ def draw():
 def update():
     global anim_index, frame, repeat, paused, pause_start
     if paused:
-        # 1초가 지나면 다음 동작으로 넘어간다 (마지막 동작이면 그대로 멈춘다)
-        if get_time() - pause_start >= PAUSE_TIME and anim_index < len(ANIMATIONS) - 1:
-            anim_index += 1
+        # 1초가 지나면 다음 동작으로 넘어간다 (마지막 동작 다음은 처음 동작)
+        if get_time() - pause_start >= PAUSE_TIME:
+            anim_index = (anim_index + 1) % len(ANIMATIONS)
             frame = 0
             repeat = 0
             paused = False
