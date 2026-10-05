@@ -5,6 +5,11 @@ WIDTH, HEIGHT = 1200, 800
 SCALE = 4
 CENTER_X = 600
 GROUND_Y = 300
+FRAME_TIME = 0.1
+
+# 동작 하나 = (pico_y, h, [(x, w), ...])
+IDLE = (447, 39, [(1, 29), (31, 26), (58, 28), (86, 30), (118, 30), (150, 30),
+                  (182, 29), (211, 29), (240, 29), (270, 24), (302, 29)])
 
 
 def clear_white():
@@ -33,13 +38,18 @@ def handle_events():
 open_canvas(WIDTH, HEIGHT)
 sheet = load_image('sonic-sprite.png')
 
+current = IDLE
+frame = 0
+
 running = True
 while running:
     handle_events()
     clear_white()
-    # 대기 동작 첫 프레임: x=1, w=29, pico_y=447, h=39
-    draw_frame(1, 447, 29, 39)
+    y, h, frames = current
+    x, w = frames[frame]
+    draw_frame(x, y, w, h)
     update_canvas()
-    delay(0.1)
+    frame = (frame + 1) % len(frames)
+    delay(FRAME_TIME)
 
 close_canvas()
