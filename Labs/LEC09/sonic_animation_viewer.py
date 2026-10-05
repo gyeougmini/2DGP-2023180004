@@ -31,6 +31,8 @@ MISC = (154, 45, [(1, 24), (31, 29), (65, 20), (90, 25), (119, 25), (149, 20),
 # 9 밀기
 PUSH = (108, 40, [(1, 27), (31, 31), (64, 31), (99, 33), (136, 32), (176, 33),
                   (217, 33), (254, 33)])
+# 10 피격
+HURT = (56, 43, [(6, 34), (49, 34), (96, 23), (125, 23)])
 
 
 def clear_white():
@@ -59,7 +61,7 @@ def handle_events():
 open_canvas(WIDTH, HEIGHT)
 sheet = load_image('sonic-sprite.png')
 
-current = PUSH
+current = HURT
 frame = 0
 
 running = True
