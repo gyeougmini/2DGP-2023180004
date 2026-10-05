@@ -61,10 +61,20 @@ def draw_frame(x, y, w, h, cx):
                               w * SCALE, h * SCALE)
 
 
+def get_center_x(anim):
+    if not anim.get('move'):
+        return CENTER_X
+    # 5회 재생 전체를 한 번의 이동으로 본다: 첫 프레임은 MOVE_LEFT, 마지막 프레임은 MOVE_RIGHT
+    n = len(anim['frames'])
+    last = REPEAT_COUNT * n - 1
+    step = min(repeat * n + frame, last)  # 정지 중에는 repeat == 5 이므로 오른쪽 끝에 고정
+    return MOVE_LEFT + (MOVE_RIGHT - MOVE_LEFT) * step // last
+
+
 def draw():
     anim = ANIMATIONS[anim_index]
     x, w = anim['frames'][frame]
-    draw_frame(x, anim['y'], w, anim['h'], CENTER_X)
+    draw_frame(x, anim['y'], w, anim['h'], get_center_x(anim))
 
 
 def update():
